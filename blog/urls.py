@@ -18,4 +18,6 @@ from . import views
 
 urlpatterns = [
     path('home', views.home, name="home"),
+    path('post/<int:id_post>', views.view_post, name="view_post"),
+
 ]
