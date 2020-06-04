@@ -19,5 +19,8 @@ from . import views
 urlpatterns = [
     path('home', views.home, name="home"),
     path('post/<int:id_post>', views.view_post, name="view_post"),
+    path('notre_canard', views.notre_canard, name="notre_canard"),
+    path('chart', views.line_chart, name='line_chart'),
+    path('chartJSON', views.line_chart_json, name='line_chart_json'),
 
 ]
