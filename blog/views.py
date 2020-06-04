@@ -3,6 +3,7 @@ from django.http import HttpResponse, Http404
 from blog.models import Article
 from django.views.generic import TemplateView
 from chartjs.views.lines import BaseLineChartView
+from .forms import ContactForm, ArticleForm
 
 def home(request):
     articles = Article.objects.all()
@@ -28,3 +29,15 @@ class LineChartJSONView(BaseLineChartView):
 
 line_chart = TemplateView.as_view(template_name='line_chart.html')
 line_chart_json = LineChartJSONView.as_view()
+
+
+def contact(request):
+    form = ContactForm(request.POST or None)
+    if form.is_valid(): 
+        sujet = form.cleaned_data['sujet']
+        message = form.cleaned_data['message']
+        envoyeur = form.cleaned_data['envoyeur']
+        renvoi = form.cleaned_data['renvoi']
+        envoi = True
+    
+    return render(request, 'blog/contact.html', locals())
