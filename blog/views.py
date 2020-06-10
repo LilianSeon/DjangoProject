@@ -18,13 +18,13 @@ def notre_canard(request):
 
 class LineChartJSONView(BaseLineChartView):
     def get_labels(self):
-        return ["January", "February", "March", "April", "May", "June", "July"]
+        return ["Avril", "Mai", "Juin"]
 
     def get_providers(self):
-        return ["Poids de Nugget"]
+        return ["Poids de Nugget en gramme"]
 
     def get_data(self):
-        return [[75, 44, 92, 11, 44, 95, 35]]
+        return [[56, 226, 380]]
 
 
 line_chart = TemplateView.as_view(template_name='line_chart.html')
